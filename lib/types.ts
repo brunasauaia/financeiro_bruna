@@ -1,5 +1,5 @@
 export type TransactionType = 'gasto' | 'reembolsavel' | 'entrada'
-export type Person = 'pedro' | 'ana' | 'casal'
+export type Person = 'bruna' | 'joao' | 'casal'
 export type CategoryType = 'gasto' | 'entrada'
 
 export interface Category {
@@ -28,10 +28,10 @@ export interface CashPosition {
   id: string
   year: number
   month: number
-  itau_pedro: number
-  nubank_ana: number
-  fatura_itau_pedro: number
-  fatura_nubank_ana: number
+  nubank_bruna: number
+  nubank_joao: number
+  fatura_nubank_bruna: number
+  fatura_nubank_joao: number
   created_at: string
   updated_at: string
 }

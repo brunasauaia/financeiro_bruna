@@ -18,13 +18,13 @@ const CURRENT_YEAR = new Date().getFullYear()
 const CURRENT_MONTH = new Date().getMonth() + 1
 
 const CATEGORY_GROUPS = [
-  { label: 'Moradia',       categories: ['Aluguel', 'Nina', 'Subscriptions'] },
-  { label: 'Alimentação',   categories: ['Supermercado', 'Alimentação Fora', 'Ifood/Rappi'] },
-  { label: 'Transporte',    categories: ['Carro', 'Uber'] },
-  { label: 'Saúde/Beleza',  categories: ['Saúde/Bem Estar', 'Esportes', 'Farmacia', 'Psicologo', 'Dentista/Médico', 'Manicure', 'Cabelo'] },
-  { label: 'Pessoal',       categories: ['Inglês', 'Mimos', 'Compras', 'Presentes', 'Viagem'] },
-  { label: 'Outros',        categories: ['Extras', 'Outros gastos'] },
-  { label: 'Reembolsos',    categories: ['Reembolsos'] },
+  { label: 'Moradia',       categories: ['Contas Casa', 'Manutenção Casa', 'Assinaturas', 'Alfredo'] },
+  { label: 'Alimentação',   categories: ['Supermercado', 'Ifood'] },
+  { label: 'Transporte',    categories: ['Carro Bru', 'Carro João', 'Uber'] },
+  { label: 'Saúde/Beleza',  categories: ['Saúde', 'Esportes', 'Farmácia', 'Manicure'] },
+  { label: 'Pessoal',       categories: ['Compras Bru', 'Compras João', 'Presentes', 'Viagem', 'Lazer', 'Educação'] },
+  { label: 'Outros',        categories: ['Outros Gastos'] },
+  { label: 'Reembolsos',    categories: ['Reembolso'] },
 ]
 
 export default function PainelPage() {
@@ -148,10 +148,10 @@ export default function PainelPage() {
   }
 
   const saldoReal = cashPosition
-    ? cashPosition.itau_pedro +
-      cashPosition.nubank_ana -
-      cashPosition.fatura_itau_pedro -
-      cashPosition.fatura_nubank_ana
+    ? cashPosition.nubank_bruna +
+      cashPosition.nubank_joao -
+      cashPosition.fatura_nubank_bruna -
+      cashPosition.fatura_nubank_joao
     : null
 
   const saldoCalculado = summary[month]?.acum ?? 0
@@ -216,8 +216,8 @@ export default function PainelPage() {
           className="border border-slate-200 rounded-lg px-3 py-1.5 text-sm text-slate-700 bg-white"
         >
           <option value="todos">Todos</option>
-          <option value="pedro">Pedro</option>
-          <option value="ana">Ana</option>
+          <option value="bruna">Bruna</option>
+          <option value="joao">João</option>
           <option value="casal">Casal</option>
         </select>
       </div>

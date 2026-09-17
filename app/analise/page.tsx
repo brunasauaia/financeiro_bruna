@@ -22,18 +22,18 @@ const CURRENT_YEAR = new Date().getFullYear()
 const CURRENT_MONTH = new Date().getMonth() + 1
 
 const CATEGORY_GROUPS = [
-  { label: 'Moradia',      categories: ['Aluguel', 'Nina', 'Subscriptions'] },
-  { label: 'Alimentação',  categories: ['Supermercado', 'Alimentação Fora', 'Ifood/Rappi'] },
-  { label: 'Transporte',   categories: ['Carro', 'Uber'] },
-  { label: 'Saúde/Beleza', categories: ['Saúde/Bem Estar', 'Esportes', 'Farmacia', 'Psicologo', 'Dentista/Médico', 'Manicure', 'Cabelo'] },
-  { label: 'Pessoal',      categories: ['Inglês', 'Mimos', 'Compras', 'Presentes', 'Viagem'] },
-  { label: 'Outros',       categories: ['Extras', 'Outros gastos'] },
-  { label: 'Reembolsos',   categories: ['Reembolsos'] },
+  { label: 'Moradia',      categories: ['Contas Casa', 'Manutenção Casa', 'Assinaturas', 'Alfredo'] },
+  { label: 'Alimentação',  categories: ['Supermercado', 'Ifood'] },
+  { label: 'Transporte',   categories: ['Carro Bru', 'Carro João', 'Uber'] },
+  { label: 'Saúde/Beleza', categories: ['Saúde', 'Esportes', 'Farmácia', 'Manicure'] },
+  { label: 'Pessoal',      categories: ['Compras Bru', 'Compras João', 'Presentes', 'Viagem', 'Lazer', 'Educação'] },
+  { label: 'Outros',       categories: ['Outros Gastos'] },
+  { label: 'Reembolsos',   categories: ['Reembolso'] },
 ]
 
 const PESSOAS = [
-  { value: 'pedro', label: 'Pedro' },
-  { value: 'ana',   label: 'Ana' },
+  { value: 'bruna', label: 'Bruna' },
+  { value: 'joao',  label: 'João' },
   { value: 'casal', label: 'Casal' },
 ]
 
@@ -152,7 +152,7 @@ export default function AnalisePage() {
   const [allCatTxsPrev, setAllCatTxsPrev] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
   const [selectedCats, setSelectedCats] = useState<Set<string>>(new Set(['Supermercado', 'Alimentação Fora', 'Ifood/Rappi']))
-  const [selectedPersons, setSelectedPersons] = useState<Set<string>>(new Set(['pedro', 'ana', 'casal']))
+  const [selectedPersons, setSelectedPersons] = useState<Set<string>>(new Set(['bruna', 'joao', 'casal']))
   const [compareMonth, setCompareMonth] = useState(CURRENT_MONTH)
 
   const selectedGroup = CATEGORY_GROUPS.find((g) => g.label === groupLabel)!

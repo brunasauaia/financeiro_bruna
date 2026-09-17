@@ -9,14 +9,14 @@ export const MONTH_ABBR = [
 ]
 
 export const PEOPLE = [
-  { value: 'pedro', label: 'Pedro' },
-  { value: 'ana', label: 'Ana' },
+  { value: 'bruna', label: 'Bruna' },
+  { value: 'joao', label: 'João' },
   { value: 'casal', label: 'Casal' },
 ] as const
 
 export const PERSON_LABELS: Record<string, string> = {
-  pedro: 'Pedro',
-  ana: 'Ana',
+  bruna: 'Bruna',
+  joao: 'João',
   casal: 'Casal',
 }
 

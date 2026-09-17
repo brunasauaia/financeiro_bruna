@@ -19,10 +19,10 @@ export default function PosicaoCaixaPage() {
   const [saldoCalculado, setSaldoCalculado] = useState<number | null>(null)
 
   const [form, setForm] = useState({
-    itau_pedro: '',
-    nubank_ana: '',
-    fatura_itau_pedro: '',
-    fatura_nubank_ana: '',
+    nubank_bruna: '',
+    nubank_joao: '',
+    fatura_nubank_bruna: '',
+    fatura_nubank_joao: '',
   })
 
   useEffect(() => {
@@ -46,10 +46,10 @@ export default function PosicaoCaixaPage() {
 
       if (data) {
         setForm({
-          itau_pedro: String(data.itau_pedro),
-          nubank_ana: String(data.nubank_ana),
-          fatura_itau_pedro: String(data.fatura_itau_pedro),
-          fatura_nubank_ana: String(data.fatura_nubank_ana),
+          nubank_bruna: String(data.nubank_bruna),
+          nubank_joao: String(data.nubank_joao),
+          fatura_nubank_bruna: String(data.fatura_nubank_bruna),
+          fatura_nubank_joao: String(data.fatura_nubank_joao),
         })
       }
     }
@@ -80,10 +80,10 @@ export default function PosicaoCaixaPage() {
   const parseNum = (v: string) => parseFloat(v.replace(',', '.')) || 0
 
   const saldoReal =
-    parseNum(form.itau_pedro) +
-    parseNum(form.nubank_ana) -
-    parseNum(form.fatura_itau_pedro) -
-    parseNum(form.fatura_nubank_ana)
+    parseNum(form.nubank_bruna) +
+    parseNum(form.nubank_joao) -
+    parseNum(form.fatura_nubank_bruna) -
+    parseNum(form.fatura_nubank_joao)
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -92,10 +92,10 @@ export default function PosicaoCaixaPage() {
     const payload: Omit<CashPosition, 'id' | 'created_at' | 'updated_at'> = {
       year: YEAR,
       month: MONTH,
-      itau_pedro: parseNum(form.itau_pedro),
-      nubank_ana: parseNum(form.nubank_ana),
-      fatura_itau_pedro: parseNum(form.fatura_itau_pedro),
-      fatura_nubank_ana: parseNum(form.fatura_nubank_ana),
+      nubank_bruna: parseNum(form.nubank_bruna),
+      nubank_joao: parseNum(form.nubank_joao),
+      fatura_nubank_bruna: parseNum(form.fatura_nubank_bruna),
+      fatura_nubank_joao: parseNum(form.fatura_nubank_joao),
     }
 
     await supabase
@@ -122,48 +122,48 @@ export default function PosicaoCaixaPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={LABEL}>Itaú Pedro (saldo)</label>
+              <label className={LABEL}>Nubank Bruna (saldo)</label>
               <input
                 type="number"
                 step="0.01"
                 placeholder="0,00"
-                value={form.itau_pedro}
-                onChange={(e) => setForm({ ...form, itau_pedro: e.target.value })}
+                value={form.nubank_bruna}
+                onChange={(e) => setForm({ ...form, nubank_bruna: e.target.value })}
                 className={INPUT}
               />
             </div>
             <div>
-              <label className={LABEL}>Nubank Ana (saldo)</label>
+              <label className={LABEL}>Nubank João (saldo)</label>
               <input
                 type="number"
                 step="0.01"
                 placeholder="0,00"
-                value={form.nubank_ana}
-                onChange={(e) => setForm({ ...form, nubank_ana: e.target.value })}
+                value={form.nubank_joao}
+                onChange={(e) => setForm({ ...form, nubank_joao: e.target.value })}
                 className={INPUT}
               />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={LABEL}>Fatura Itaú Pedro</label>
+              <label className={LABEL}>Fatura Nubank Bruna</label>
               <input
                 type="number"
                 step="0.01"
                 placeholder="0,00"
-                value={form.fatura_itau_pedro}
-                onChange={(e) => setForm({ ...form, fatura_itau_pedro: e.target.value })}
+                value={form.fatura_nubank_bruna}
+                onChange={(e) => setForm({ ...form, fatura_nubank_bruna: e.target.value })}
                 className={INPUT}
               />
             </div>
             <div>
-              <label className={LABEL}>Fatura Nubank Ana</label>
+              <label className={LABEL}>Fatura Nubank João</label>
               <input
                 type="number"
                 step="0.01"
                 placeholder="0,00"
-                value={form.fatura_nubank_ana}
-                onChange={(e) => setForm({ ...form, fatura_nubank_ana: e.target.value })}
+                value={form.fatura_nubank_joao}
+                onChange={(e) => setForm({ ...form, fatura_nubank_joao: e.target.value })}
                 className={INPUT}
               />
             </div>
@@ -195,20 +195,20 @@ export default function PosicaoCaixaPage() {
         </div>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between text-slate-600">
-            <span>Itaú Pedro</span>
-            <span className="tabular-nums font-medium">{formatCurrency(parseNum(form.itau_pedro))}</span>
+            <span>Nubank Bruna</span>
+            <span className="tabular-nums font-medium">{formatCurrency(parseNum(form.nubank_bruna))}</span>
           </div>
           <div className="flex justify-between text-slate-600">
-            <span>Nubank Ana</span>
-            <span className="tabular-nums font-medium">{formatCurrency(parseNum(form.nubank_ana))}</span>
+            <span>Nubank João</span>
+            <span className="tabular-nums font-medium">{formatCurrency(parseNum(form.nubank_joao))}</span>
           </div>
           <div className="flex justify-between text-red-500">
-            <span>Fatura Itaú Pedro</span>
-            <span className="tabular-nums font-medium">− {formatCurrency(parseNum(form.fatura_itau_pedro))}</span>
+            <span>Fatura Nubank Bruna</span>
+            <span className="tabular-nums font-medium">− {formatCurrency(parseNum(form.fatura_nubank_bruna))}</span>
           </div>
           <div className="flex justify-between text-red-500">
-            <span>Fatura Nubank Ana</span>
-            <span className="tabular-nums font-medium">− {formatCurrency(parseNum(form.fatura_nubank_ana))}</span>
+            <span>Fatura Nubank João</span>
+            <span className="tabular-nums font-medium">− {formatCurrency(parseNum(form.fatura_nubank_joao))}</span>
           </div>
           <div className="border-t border-slate-200 pt-2 flex justify-between font-bold text-slate-800">
             <span>Saldo Real de Caixa</span>

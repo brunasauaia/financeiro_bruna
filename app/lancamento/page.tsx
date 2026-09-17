@@ -43,7 +43,7 @@ export default function LancamentoPage() {
 
   useEffect(() => {
     if (form.type === 'reembolsavel') {
-      const reembolsosCat = categories.find((c) => c.name === 'Reembolsos')
+      const reembolsosCat = categories.find((c) => c.name === 'Reembolso')
       setForm((f) => ({ ...f, category_id: reembolsosCat ? String(reembolsosCat.id) : '' }))
     } else {
       setForm((f) => ({ ...f, category_id: '' }))
