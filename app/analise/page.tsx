@@ -27,7 +27,7 @@ const CATEGORY_GROUPS = [
   { label: 'Transporte',   categories: ['Carro Bru', 'Carro João', 'Uber'] },
   { label: 'Saúde/Beleza', categories: ['Saúde', 'Esportes', 'Farmácia', 'Manicure'] },
   { label: 'Pessoal',      categories: ['Compras Bru', 'Compras João', 'Presentes', 'Viagem', 'Lazer', 'Educação'] },
-  { label: 'Outros',       categories: ['Outros Gastos'] },
+  { label: 'Outros',       categories: ['Outros Gastos', 'Aporte Investimentos'] },
   { label: 'Reembolsos',   categories: ['Reembolso'] },
 ]
 

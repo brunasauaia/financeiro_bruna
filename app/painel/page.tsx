@@ -23,7 +23,7 @@ const CATEGORY_GROUPS = [
   { label: 'Transporte',    categories: ['Carro Bru', 'Carro João', 'Uber'] },
   { label: 'Saúde/Beleza',  categories: ['Saúde', 'Esportes', 'Farmácia', 'Manicure'] },
   { label: 'Pessoal',       categories: ['Compras Bru', 'Compras João', 'Presentes', 'Viagem', 'Lazer', 'Educação'] },
-  { label: 'Outros',        categories: ['Outros Gastos'] },
+  { label: 'Outros',        categories: ['Outros Gastos', 'Aporte Investimentos'] },
   { label: 'Reembolsos',    categories: ['Reembolso'] },
 ]
 
@@ -357,6 +357,22 @@ export default function PainelPage() {
                       {summary[m]?.gastos > 0 ? formatCurrency(summary[m].gastos) : '—'}
                     </td>
                   ))}
+                </tr>
+                <tr className="bg-blue-50">
+                  <td className="px-4 py-2.5 pl-8 text-slate-600 sticky left-0 bg-blue-50">
+                    Total Gastos (-) Aporte Investimentos (-) Reembolsos
+                  </td>
+                  {monthNumbers.map((m) => {
+                    const val =
+                      (summary[m]?.gastos ?? 0) -
+                      (matrix['Aporte Investimentos']?.[m] ?? 0) -
+                      (matrix['Reembolso']?.[m] ?? 0)
+                    return (
+                      <td key={m} className="px-3 py-2.5 text-right text-slate-600 tabular-nums">
+                        {val > 0 ? formatCurrency(val) : '—'}
+                      </td>
+                    )
+                  })}
                 </tr>
                 <tr className="bg-blue-50 border-b border-blue-100">
                   <td className="px-4 py-2.5 font-semibold text-emerald-700 sticky left-0 bg-blue-50">

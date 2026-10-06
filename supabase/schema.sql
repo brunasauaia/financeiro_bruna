@@ -31,10 +31,11 @@ INSERT INTO categories (name, type, display_order) VALUES
   ('Manutenção Casa', 'gasto', 19),
   ('Lazer', 'gasto', 20),
   ('Uber', 'gasto', 21),
+  ('Aporte Investimentos', 'gasto', 22),
   ('Salário', 'entrada', 1),
   ('Reembolso recebido', 'entrada', 2),
   ('Outros créditos', 'entrada', 3),
-  ('Aporte', 'entrada', 4)
+  ('Aporte Retirada', 'entrada', 4)
 ON CONFLICT (name) DO NOTHING;
 
 -- Transactions
